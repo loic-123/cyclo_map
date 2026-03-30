@@ -38,6 +38,33 @@ function createCircleIcon(color: string, size: number, pulse = false, dark = tru
   });
 }
 
+/** Spread overlapping markers in a small circle so they don't stack */
+function spreadOverlapping(events: CycloEvent[]): globalThis.Map<number, [number, number]> {
+  const byCoord = new globalThis.Map<string, CycloEvent[]>();
+  for (const e of events) {
+    const key = `${e.lat},${e.lng}`;
+    const arr = byCoord.get(key) ?? [];
+    arr.push(e);
+    byCoord.set(key, arr);
+  }
+  const result = new globalThis.Map<number, [number, number]>();
+  for (const group of byCoord.values()) {
+    if (group.length === 1) {
+      result.set(group[0].id, [group[0].lat, group[0].lng]);
+    } else {
+      const offset = 0.008; // ~800m spread radius
+      group.forEach((e, i) => {
+        const angle = (2 * Math.PI * i) / group.length - Math.PI / 2;
+        result.set(e.id, [
+          e.lat + offset * Math.sin(angle),
+          e.lng + offset * Math.cos(angle),
+        ]);
+      });
+    }
+  }
+  return result;
+}
+
 export default function Map({
   events,
   hoveredEventId,
@@ -132,20 +159,23 @@ export default function Map({
     markersRef.current.forEach((m) => m.remove());
     markersRef.current.clear();
 
+    const positions = spreadOverlapping(events);
+
     events.forEach((event) => {
       const color = MONTH_CONFIG[event.month].color;
       const isHovered = event.id === hoveredEventId;
       const isSelected = event.id === selectedEventId;
       const size = isHovered || isSelected ? 18 : 12;
+      const [lat, lng] = positions.get(event.id) ?? [event.lat, event.lng];
 
-      const marker = L.marker([event.lat, event.lng], {
+      const marker = L.marker([lat, lng], {
         icon: createCircleIcon(color, size, isSelected, isDark),
       });
 
       marker.on("mouseover", () => {
         onHoverEvent(event.id);
         popupRef.current
-          ?.setLatLng([event.lat, event.lng])
+          ?.setLatLng([lat, lng])
           .setContent(
             `<div style="font-family:'DM Sans',sans-serif;"><strong style="font-size:12px;">${event.name}</strong><br/><span style="font-size:11px;opacity:0.7;">📅 ${event.date}</span></div>`
           )

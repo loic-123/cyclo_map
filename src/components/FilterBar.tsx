@@ -1,8 +1,19 @@
 "use client";
 
+import { useMemo } from "react";
 import FilterChip from "./FilterChip";
+import FilterSection from "./FilterSection";
 import type { CycloEvent, Filters, Month, EventType, Region, Fiabilite } from "@/lib/types";
-import { MONTH_CONFIG, TYPE_CONFIG, REGION_CONFIG, FIAB_CONFIG } from "@/lib/constants";
+import {
+  MONTH_CONFIG,
+  TYPE_CONFIG,
+  REGION_CONFIG,
+  FIAB_CONFIG,
+  ALL_MONTHS,
+  ALL_TYPES,
+  ALL_REGIONS,
+  ALL_FIABS,
+} from "@/lib/constants";
 
 interface FilterBarProps {
   allEvents: CycloEvent[];
@@ -11,6 +22,8 @@ interface FilterBarProps {
   toggleType: (t: EventType) => void;
   toggleRegion: (r: Region) => void;
   toggleFiab: (f: Fiabilite) => void;
+  setAll: <T>(key: keyof Filters, values: T[]) => void;
+  clearCategory: (key: keyof Filters) => void;
   resetAll: () => void;
 }
 
@@ -42,6 +55,8 @@ export default function FilterBar({
   toggleType,
   toggleRegion,
   toggleFiab,
+  setAll,
+  clearCategory,
   resetAll,
 }: FilterBarProps) {
   const monthCounts = countBy(allEvents, "month", filters, "months");
@@ -49,28 +64,52 @@ export default function FilterBar({
   const regionCounts = countBy(allEvents, "region", filters, "regions");
   const fiabCounts = countBy(allEvents, "fiabilite", filters, "fiabs");
 
-  // Only show regions that have events
-  const activeRegions = (
-    Object.entries(REGION_CONFIG) as [Region, (typeof REGION_CONFIG)[keyof typeof REGION_CONFIG]][]
-  ).filter(([key]) => allEvents.some((e) => e.region === key));
+  // Only show regions that actually have events
+  const activeRegions = useMemo(
+    () =>
+      (Object.entries(REGION_CONFIG) as [Region, (typeof REGION_CONFIG)[keyof typeof REGION_CONFIG]][]).filter(
+        ([key]) => allEvents.some((e) => e.region === key)
+      ),
+    [allEvents]
+  );
+
+  const activeRegionKeys = useMemo(() => activeRegions.map(([k]) => k), [activeRegions]);
+
+  const isDefault =
+    filters.months.size === ALL_MONTHS.length &&
+    filters.types.size === ALL_TYPES.length &&
+    filters.regions.size >= activeRegionKeys.length &&
+    filters.fiabs.size === ALL_FIABS.length;
 
   return (
-    <div className="space-y-2.5 px-4 py-3 border-b" style={{ borderColor: "var(--border)" }}>
-      <div className="flex items-center justify-between">
-        <span className="text-[10px] uppercase tracking-widest font-medium" style={{ color: "var(--text-3)" }}>
+    <div className="px-4 py-2 border-b space-y-0.5" style={{ borderColor: "var(--border)" }}>
+      {/* Header */}
+      <div className="flex items-center justify-between pb-1">
+        <span
+          className="text-[10px] uppercase tracking-widest font-semibold"
+          style={{ color: "var(--text-3)" }}
+        >
           Filtres
         </span>
-        <button
-          onClick={resetAll}
-          className="text-[10px] uppercase tracking-widest cursor-pointer hover:underline"
-          style={{ color: "var(--accent)" }}
-        >
-          Réinitialiser
-        </button>
+        {!isDefault && (
+          <button
+            onClick={resetAll}
+            className="text-[10px] uppercase tracking-wider cursor-pointer hover:underline transition-colors"
+            style={{ color: "var(--accent)" }}
+          >
+            Tout réinitialiser
+          </button>
+        )}
       </div>
 
       {/* Mois */}
-      <div className="flex flex-wrap gap-1.5">
+      <FilterSection
+        label="Mois"
+        totalActive={filters.months.size}
+        totalCount={ALL_MONTHS.length}
+        onSelectAll={() => setAll("months", ALL_MONTHS)}
+        onDeselectAll={() => clearCategory("months")}
+      >
         {(Object.entries(MONTH_CONFIG) as [Month, (typeof MONTH_CONFIG)[Month]][]).map(
           ([key, cfg]) => (
             <FilterChip
@@ -83,10 +122,16 @@ export default function FilterBar({
             />
           )
         )}
-      </div>
+      </FilterSection>
 
       {/* Type */}
-      <div className="flex flex-wrap gap-1.5">
+      <FilterSection
+        label="Type"
+        totalActive={filters.types.size}
+        totalCount={ALL_TYPES.length}
+        onSelectAll={() => setAll("types", ALL_TYPES)}
+        onDeselectAll={() => clearCategory("types")}
+      >
         {(Object.entries(TYPE_CONFIG) as [EventType, (typeof TYPE_CONFIG)[EventType]][]).map(
           ([key, cfg]) => (
             <FilterChip
@@ -99,10 +144,17 @@ export default function FilterBar({
             />
           )
         )}
-      </div>
+      </FilterSection>
 
       {/* Région */}
-      <div className="flex flex-wrap gap-1.5">
+      <FilterSection
+        label="Région"
+        totalActive={filters.regions.size}
+        totalCount={activeRegionKeys.length}
+        onSelectAll={() => setAll("regions", ALL_REGIONS)}
+        onDeselectAll={() => clearCategory("regions")}
+        defaultOpen={false}
+      >
         {activeRegions.map(([key, cfg]) => (
           <FilterChip
             key={key}
@@ -113,10 +165,16 @@ export default function FilterBar({
             onClick={() => toggleRegion(key)}
           />
         ))}
-      </div>
+      </FilterSection>
 
       {/* Fiabilité */}
-      <div className="flex flex-wrap gap-1.5">
+      <FilterSection
+        label="Fiabilité"
+        totalActive={filters.fiabs.size}
+        totalCount={ALL_FIABS.length}
+        onSelectAll={() => setAll("fiabs", ALL_FIABS)}
+        onDeselectAll={() => clearCategory("fiabs")}
+      >
         {(Object.entries(FIAB_CONFIG) as [Fiabilite, (typeof FIAB_CONFIG)[Fiabilite]][]).map(
           ([key, cfg]) => (
             <FilterChip
@@ -129,7 +187,7 @@ export default function FilterBar({
             />
           )
         )}
-      </div>
+      </FilterSection>
     </div>
   );
 }

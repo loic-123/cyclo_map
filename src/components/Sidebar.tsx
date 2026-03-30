@@ -13,6 +13,8 @@ interface SidebarProps {
   toggleType: (t: EventType) => void;
   toggleRegion: (r: Region) => void;
   toggleFiab: (f: Fiabilite) => void;
+  setAll: <T>(key: keyof Filters, values: T[]) => void;
+  clearCategory: (key: keyof Filters) => void;
   resetAll: () => void;
   hoveredEventId: number | null;
   selectedEventId: number | null;
@@ -28,6 +30,8 @@ export default function Sidebar({
   toggleType,
   toggleRegion,
   toggleFiab,
+  setAll,
+  clearCategory,
   resetAll,
   hoveredEventId,
   selectedEventId,
@@ -66,6 +70,8 @@ export default function Sidebar({
         toggleType={toggleType}
         toggleRegion={toggleRegion}
         toggleFiab={toggleFiab}
+        setAll={setAll}
+        clearCategory={clearCategory}
         resetAll={resetAll}
       />
 

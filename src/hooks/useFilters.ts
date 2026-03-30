@@ -61,6 +61,20 @@ export function useFilters(allEvents: CycloEvent[]) {
   const toggleRegion = useMemo(() => toggle<Region>("regions"), [toggle]);
   const toggleFiab = useMemo(() => toggle<Fiabilite>("fiabs"), [toggle]);
 
+  const setAll = useCallback(
+    <T,>(key: keyof Filters, values: T[]) => {
+      setFilters((prev) => ({ ...prev, [key]: new Set(values) }));
+    },
+    []
+  );
+
+  const clearCategory = useCallback(
+    (key: keyof Filters) => {
+      setFilters((prev) => ({ ...prev, [key]: new Set() }));
+    },
+    []
+  );
+
   const resetAll = useCallback(() => setFilters(defaultFilters()), []);
 
   const visibleEvents = useMemo(
@@ -74,6 +88,8 @@ export function useFilters(allEvents: CycloEvent[]) {
     toggleType,
     toggleRegion,
     toggleFiab,
+    setAll,
+    clearCategory,
     resetAll,
     visibleEvents,
   };

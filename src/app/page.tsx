@@ -21,6 +21,8 @@ function AppContent() {
     toggleType,
     toggleRegion,
     toggleFiab,
+    setAll,
+    clearCategory,
     resetAll,
     visibleEvents,
   } = useFilters(allEvents);
@@ -46,6 +48,8 @@ function AppContent() {
           toggleType={toggleType}
           toggleRegion={toggleRegion}
           toggleFiab={toggleFiab}
+          setAll={setAll}
+          clearCategory={clearCategory}
           resetAll={resetAll}
           hoveredEventId={hoveredEventId}
           selectedEventId={selectedEventId}

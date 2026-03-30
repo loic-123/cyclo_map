@@ -2,7 +2,7 @@
 
 ## Contexte
 
-Le fichier `events.json` a été étendu pour couvrir **toute la France** du **1er mai au 31 août 2026**. Il contient désormais **78 cyclosportives** issues du croisement de 5 sources :
+Le fichier `events.json` a été étendu pour couvrir **toute la France** du **1er mai au 31 août 2026**. Il contient désormais **87 cyclosportives** issues du croisement de 5 sources :
 
 - velo-cyclosport.com (calendrier national de référence)
 - Battistrada.com (calendrier européen)
@@ -76,20 +76,20 @@ Avec 78 événements répartis sur toute la France :
 
 | Mois | Nb événements |
 |------|---------------|
-| Mai | 25 |
+| Mai | 28 |
 | Juin | 28 |
-| Juillet | 15 |
-| Août | 10 |
-| **Total** | **78** |
+| Juillet | 16 |
+| Août | 15 |
+| **Total** | **87** |
 
 | Région | Nb événements |
 |--------|---------------|
-| Auvergne-Rhône-Alpes | 30 |
-| PACA | 11 |
-| Occitanie | 9 |
-| Bourgogne-Franche-Comté | 9 |
-| Grand Est | 7 |
-| Nouvelle-Aquitaine | 6 |
+| Auvergne-Rhône-Alpes | 33 |
+| PACA | 12 |
+| Occitanie | 10 |
+| Bourgogne-Franche-Comté | 10 |
+| Grand Est | 8 |
+| Nouvelle-Aquitaine | 7 |
 | Bretagne | 2 |
 | Normandie | 2 |
 | Pays de la Loire | 2 |
@@ -109,9 +109,10 @@ Le filtre région doit aussi être sérialisé dans l'URL :
 
 ## Checklist additionnelle
 
-- [ ] Les 78 événements s'affichent correctement sur la carte France entière
+- [ ] Les 87 événements s'affichent correctement sur la carte France entière
 - [ ] Le clustering fonctionne (surtout Alpes / Pyrénées / Jura)
 - [ ] Le filtre Région fonctionne et se combine avec les autres
 - [ ] Le fitBounds s'adapte quand on filtre une seule région
 - [ ] Les événements hors métropole (si ajoutés ultérieurement) sont gérés
-- [ ] La performance reste fluide avec 78+ marqueurs + clustering
+- [ ] La performance reste fluide avec 87+ marqueurs + clustering
+- [ ] Les 20 événements régionaux initiaux (07/26/38/69/84/04) sont tous présents (vérifié par script)

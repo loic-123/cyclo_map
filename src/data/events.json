@@ -103,12 +103,30 @@
     "distancesLabel": "Parcours multiples",
     "fiabilite": "confirmed",
     "lat": 48.1722,
-    "lng": 6.4510,
+    "lng": 6.451,
     "url": null,
     "notes": null
   },
   {
     "id": 7,
+    "name": "Course de la Résistance",
+    "date": "8 mai",
+    "dateISO": "2026-05-08",
+    "jour": "Vendredi (férié)",
+    "month": "mai",
+    "lieu": "La Côte-Saint-André",
+    "dept": "38",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "RC",
+    "distancesLabel": "105, 66, 36 km + trail/marche",
+    "fiabilite": "confirmed",
+    "lat": 45.3947,
+    "lng": 5.2611,
+    "url": null,
+    "notes": "Événement multi-sport (vélo route + trail + marche). 8 mai férié"
+  },
+  {
+    "id": 8,
     "name": "L'Aindinoise - Grand Colombier",
     "date": "9 mai",
     "dateISO": "2026-05-09",
@@ -126,7 +144,7 @@
     "notes": "Trophée Label d'Or. Montée mythique du Grand Colombier"
   },
   {
-    "id": 8,
+    "id": 9,
     "name": "Granfondo La Vençoise",
     "date": "9 mai",
     "dateISO": "2026-05-09",
@@ -144,7 +162,7 @@
     "notes": null
   },
   {
-    "id": 9,
+    "id": 10,
     "name": "La Sundgauvienne",
     "date": "10 mai",
     "dateISO": "2026-05-10",
@@ -162,7 +180,7 @@
     "notes": null
   },
   {
-    "id": 10,
+    "id": 11,
     "name": "L'Ornaise",
     "date": "10 mai",
     "dateISO": "2026-05-10",
@@ -174,13 +192,13 @@
     "type": "CS",
     "distancesLabel": "Parcours multiples",
     "fiabilite": "confirmed",
-    "lat": 48.7440,
+    "lat": 48.744,
     "lng": -0.0208,
     "url": null,
     "notes": null
   },
   {
-    "id": 11,
+    "id": 12,
     "name": "Euskal Cyclo",
     "date": "10 mai",
     "dateISO": "2026-05-10",
@@ -198,7 +216,7 @@
     "notes": null
   },
   {
-    "id": 12,
+    "id": 13,
     "name": "La Lozérienne Cyclo",
     "date": "10 mai",
     "dateISO": "2026-05-10",
@@ -216,7 +234,7 @@
     "notes": null
   },
   {
-    "id": 13,
+    "id": 14,
     "name": "Les 3 Cols materiel-velo.com",
     "date": "14 mai",
     "dateISO": "2026-05-14",
@@ -234,7 +252,7 @@
     "notes": "Cyclo'Tour Matériel-Velo.com. Jeudi de l'Ascension (férié)"
   },
   {
-    "id": 14,
+    "id": 15,
     "name": "La Ronde Camarguaise",
     "date": "14 mai",
     "dateISO": "2026-05-14",
@@ -252,7 +270,43 @@
     "notes": null
   },
   {
-    "id": 15,
+    "id": 16,
+    "name": "Le Rallye de La Roanne",
+    "date": "14 mai",
+    "dateISO": "2026-05-14",
+    "jour": "Jeudi (Ascension)",
+    "month": "mai",
+    "lieu": "Crest",
+    "dept": "26",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "RC",
+    "distancesLabel": "166, 132, 94, 56 km (route+VTT)",
+    "fiabilite": "probable",
+    "lat": 44.7289,
+    "lng": 5.0239,
+    "url": null,
+    "notes": "Org. US Crest Cyclotourisme. Jeudi de l'Ascension (férié)"
+  },
+  {
+    "id": 17,
+    "name": "Rando des Collines",
+    "date": "16 mai",
+    "dateISO": "2026-05-16",
+    "jour": "Samedi",
+    "month": "mai",
+    "lieu": "Beaucroissant",
+    "dept": "38",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "RC",
+    "distancesLabel": "Route + VTT",
+    "fiabilite": "probable",
+    "lat": 45.3378,
+    "lng": 5.5058,
+    "url": null,
+    "notes": null
+  },
+  {
+    "id": 18,
     "name": "UCI Granfondo Vosges",
     "date": "17 mai",
     "dateISO": "2026-05-17",
@@ -270,7 +324,7 @@
     "notes": "UCI Granfondo World Series"
   },
   {
-    "id": 16,
+    "id": 19,
     "name": "Les Boucles du Verdon",
     "date": "17 mai",
     "dateISO": "2026-05-17",
@@ -288,7 +342,7 @@
     "notes": "Trophée Label d'Or FFC. Gravel le samedi 16 mai"
   },
   {
-    "id": 17,
+    "id": 20,
     "name": "Le Grand Tour de Creuse",
     "date": "21 mai",
     "dateISO": "2026-05-21",
@@ -306,7 +360,7 @@
     "notes": "Épreuve longue distance"
   },
   {
-    "id": 18,
+    "id": 21,
     "name": "GFNY Villard-de-Lans",
     "date": "24 mai",
     "dateISO": "2026-05-24",
@@ -324,7 +378,7 @@
     "notes": "GFNY World Series. Parc du Vercors"
   },
   {
-    "id": 19,
+    "id": 22,
     "name": "La Bizikleta",
     "date": "24 mai",
     "dateISO": "2026-05-24",
@@ -342,7 +396,7 @@
     "notes": "Sold out très tôt chaque année"
   },
   {
-    "id": 20,
+    "id": 23,
     "name": "Les 6 Heures de Chenevières",
     "date": "25 mai",
     "dateISO": "2026-05-25",
@@ -360,7 +414,7 @@
     "notes": "Course par équipe sur 6 heures"
   },
   {
-    "id": 21,
+    "id": 24,
     "name": "La Bernard Thévenet",
     "date": "30 mai",
     "dateISO": "2026-05-30",
@@ -378,7 +432,7 @@
     "notes": null
   },
   {
-    "id": 22,
+    "id": 25,
     "name": "Le Bol d'Or vélo Paris",
     "date": "30 mai",
     "dateISO": "2026-05-30",
@@ -396,7 +450,7 @@
     "notes": null
   },
   {
-    "id": 23,
+    "id": 26,
     "name": "8h Airbike Challenge",
     "date": "30 mai",
     "dateISO": "2026-05-30",
@@ -414,7 +468,7 @@
     "notes": null
   },
   {
-    "id": 24,
+    "id": 27,
     "name": "L'Octogonale Aveyron",
     "date": "31 mai",
     "dateISO": "2026-05-31",
@@ -432,7 +486,7 @@
     "notes": null
   },
   {
-    "id": 25,
+    "id": 28,
     "name": "La Vache qui Rit",
     "date": "31 mai",
     "dateISO": "2026-05-31",
@@ -450,7 +504,7 @@
     "notes": "Parrain : Laurent Jalabert"
   },
   {
-    "id": 26,
+    "id": 29,
     "name": "Savoie Tour 2026",
     "date": "1 juin",
     "dateISO": "2026-06-01",
@@ -468,7 +522,7 @@
     "notes": "Ultra (687 km, 19200 D+, 96h max) + parcours classiques"
   },
   {
-    "id": 27,
+    "id": 30,
     "name": "La Claudio Chiappucci",
     "date": "6 juin",
     "dateISO": "2026-06-06",
@@ -486,7 +540,7 @@
     "notes": "Présence d'El Diablo"
   },
   {
-    "id": 28,
+    "id": 31,
     "name": "Les Trois Ballons",
     "date": "6 juin",
     "dateISO": "2026-06-06",
@@ -504,7 +558,7 @@
     "notes": null
   },
   {
-    "id": 29,
+    "id": 32,
     "name": "La LIMOUSINE André Dufraisse",
     "date": "6 juin",
     "dateISO": "2026-06-06",
@@ -522,7 +576,7 @@
     "notes": null
   },
   {
-    "id": 30,
+    "id": 33,
     "name": "24 Nogaro Vélo",
     "date": "6 juin",
     "dateISO": "2026-06-06",
@@ -540,7 +594,7 @@
     "notes": "Endurance 24h sur le circuit Paul Armagnac"
   },
   {
-    "id": 31,
+    "id": 34,
     "name": "Galibier Challenge",
     "date": "7 juin",
     "dateISO": "2026-06-07",
@@ -558,7 +612,7 @@
     "notes": null
   },
   {
-    "id": 32,
+    "id": 35,
     "name": "Motz-Chautagne Tour",
     "date": "7 juin",
     "dateISO": "2026-06-07",
@@ -576,7 +630,7 @@
     "notes": null
   },
   {
-    "id": 33,
+    "id": 36,
     "name": "La Faucigny Glières",
     "date": "7 juin",
     "dateISO": "2026-06-07",
@@ -594,7 +648,7 @@
     "notes": null
   },
   {
-    "id": 34,
+    "id": 37,
     "name": "Colnago GF Mont Ventoux",
     "date": "6-7 juin",
     "dateISO": "2026-06-07",
@@ -612,7 +666,7 @@
     "notes": "Arrivée au sommet du Mont Ventoux. GF Series Colnago"
   },
   {
-    "id": 35,
+    "id": 38,
     "name": "2SEO La Murataise",
     "date": "7 juin",
     "dateISO": "2026-06-07",
@@ -630,7 +684,7 @@
     "notes": null
   },
   {
-    "id": 36,
+    "id": 39,
     "name": "L'Ardéchoise",
     "date": "9-13 juin",
     "dateISO": "2026-06-13",
@@ -648,7 +702,7 @@
     "notes": "33e éd. Plus grand rassemblement cyclo d'Europe en montagne. Label d'Or le samedi"
   },
   {
-    "id": 37,
+    "id": 40,
     "name": "Grand Huit Luxeuil Vosges du Sud",
     "date": "13 juin",
     "dateISO": "2026-06-13",
@@ -666,7 +720,7 @@
     "notes": null
   },
   {
-    "id": 38,
+    "id": 41,
     "name": "GFNY Lourdes Tourmalet",
     "date": "14 juin",
     "dateISO": "2026-06-14",
@@ -684,7 +738,7 @@
     "notes": "GFNY World Series. Col du Tourmalet"
   },
   {
-    "id": 39,
+    "id": 42,
     "name": "La Ronde Normande",
     "date": "14 juin",
     "dateISO": "2026-06-14",
@@ -702,7 +756,7 @@
     "notes": null
   },
   {
-    "id": 40,
+    "id": 43,
     "name": "La Mercan'Tour Bonette",
     "date": "14 juin",
     "dateISO": "2026-06-14",
@@ -720,7 +774,7 @@
     "notes": "Cime de la Bonette (2802 m)"
   },
   {
-    "id": 41,
+    "id": 44,
     "name": "GFNY La Vaujany Alpe d'Huez",
     "date": "21 juin",
     "dateISO": "2026-06-21",
@@ -738,7 +792,7 @@
     "notes": "GFNY World Series"
   },
   {
-    "id": 42,
+    "id": 45,
     "name": "La Volcane",
     "date": "21 juin",
     "dateISO": "2026-06-21",
@@ -756,7 +810,7 @@
     "notes": null
   },
   {
-    "id": 43,
+    "id": 46,
     "name": "La Téméraire",
     "date": "21 juin",
     "dateISO": "2026-06-21",
@@ -774,7 +828,7 @@
     "notes": null
   },
   {
-    "id": 44,
+    "id": 47,
     "name": "La Périgordine",
     "date": "21 juin",
     "dateISO": "2026-06-21",
@@ -792,7 +846,7 @@
     "notes": null
   },
   {
-    "id": 45,
+    "id": 48,
     "name": "Bar-sur-Aube Chemins Blancs Cycling Race",
     "date": "21 juin",
     "dateISO": "2026-06-21",
@@ -810,7 +864,7 @@
     "notes": null
   },
   {
-    "id": 46,
+    "id": 49,
     "name": "La Tricolore – Défi des Vals",
     "date": "27 juin",
     "dateISO": "2026-06-27",
@@ -828,7 +882,7 @@
     "notes": "Sur les routes des Championnats de France"
   },
   {
-    "id": 47,
+    "id": 50,
     "name": "L'Ariégeoise",
     "date": "27 juin",
     "dateISO": "2026-06-27",
@@ -846,7 +900,7 @@
     "notes": "30e édition. XXL 310 km (8250 D+) le vendredi"
   },
   {
-    "id": 48,
+    "id": 51,
     "name": "La Provençale Cyclo",
     "date": "27 juin",
     "dateISO": "2026-06-27",
@@ -864,7 +918,7 @@
     "notes": "2e édition. Montagne de Lure"
   },
   {
-    "id": 49,
+    "id": 52,
     "name": "La Cycl'Aigoual Route",
     "date": "27 juin",
     "dateISO": "2026-06-27",
@@ -882,7 +936,7 @@
     "notes": null
   },
   {
-    "id": 50,
+    "id": 53,
     "name": "Bol d'Or circuit Paul Ricard",
     "date": "27 juin",
     "dateISO": "2026-06-27",
@@ -900,7 +954,7 @@
     "notes": null
   },
   {
-    "id": 51,
+    "id": 54,
     "name": "Forest'Cime Granfondo",
     "date": "27 juin",
     "dateISO": "2026-06-27",
@@ -918,7 +972,7 @@
     "notes": null
   },
   {
-    "id": 52,
+    "id": 55,
     "name": "Marmotte Granfondo Alpes",
     "date": "28 juin",
     "dateISO": "2026-06-28",
@@ -936,7 +990,7 @@
     "notes": "Glandon, Télégraphe, Galibier, Alpe d'Huez. Rando 2 jours (27-28). CLM Grimpée le 26"
   },
   {
-    "id": 53,
+    "id": 56,
     "name": "L'Alsacienne",
     "date": "28 juin",
     "dateISO": "2026-06-28",
@@ -954,7 +1008,7 @@
     "notes": null
   },
   {
-    "id": 54,
+    "id": 57,
     "name": "Les Copains",
     "date": "4 juillet",
     "dateISO": "2026-07-04",
@@ -966,13 +1020,13 @@
     "type": "CS",
     "distancesLabel": "Multiples formats dont ultra 774 km",
     "fiabilite": "confirmed",
-    "lat": 45.5500,
+    "lat": 45.55,
     "lng": 3.7422,
     "url": null,
     "notes": "Ultr'Arverne incluse (774, 560, 330 km)"
   },
   {
-    "id": 55,
+    "id": 58,
     "name": "La JPP - Neuf de Coeur",
     "date": "5 juillet",
     "dateISO": "2026-07-05",
@@ -990,7 +1044,7 @@
     "notes": null
   },
   {
-    "id": 56,
+    "id": 59,
     "name": "Cyclo Haut-Jura",
     "date": "5 juillet",
     "dateISO": "2026-07-05",
@@ -1008,7 +1062,7 @@
     "notes": null
   },
   {
-    "id": 57,
+    "id": 60,
     "name": "La Coeur de Bretagne",
     "date": "5 juillet",
     "dateISO": "2026-07-05",
@@ -1026,7 +1080,7 @@
     "notes": null
   },
   {
-    "id": 58,
+    "id": 61,
     "name": "La Pyrénéenne",
     "date": "5 juillet",
     "dateISO": "2026-07-05",
@@ -1039,12 +1093,12 @@
     "distancesLabel": "Parcours multiples (Pyrénées)",
     "fiabilite": "confirmed",
     "lat": 43.0647,
-    "lng": 0.1500,
+    "lng": 0.15,
     "url": null,
     "notes": null
   },
   {
-    "id": 59,
+    "id": 62,
     "name": "Le Tour du Mont Blanc",
     "date": "11 juillet",
     "dateISO": "2026-07-11",
@@ -1057,12 +1111,12 @@
     "distancesLabel": "330 km (Tour complet)",
     "fiabilite": "confirmed",
     "lat": 45.7628,
-    "lng": 6.5350,
+    "lng": 6.535,
     "url": null,
     "notes": "Défi XXL autour du Mont Blanc"
   },
   {
-    "id": 60,
+    "id": 63,
     "name": "GFNY Grand Ballon",
     "date": "12 juillet",
     "dateISO": "2026-07-12",
@@ -1080,7 +1134,7 @@
     "notes": "GFNY World Series"
   },
   {
-    "id": 61,
+    "id": 64,
     "name": "La Matthieu Ladagnous",
     "date": "12 juillet",
     "dateISO": "2026-07-12",
@@ -1098,7 +1152,7 @@
     "notes": null
   },
   {
-    "id": 62,
+    "id": 65,
     "name": "GF Sybelles La Toussuire",
     "date": "14 juillet",
     "dateISO": "2026-07-14",
@@ -1110,13 +1164,13 @@
     "type": "GF",
     "distancesLabel": "128 km, 98 km, 53 km",
     "fiabilite": "confirmed",
-    "lat": 45.2500,
-    "lng": 6.2500,
+    "lat": 45.25,
+    "lng": 6.25,
     "url": null,
     "notes": null
   },
   {
-    "id": 63,
+    "id": 66,
     "name": "L'Étape du Tour de France",
     "date": "19 juillet",
     "dateISO": "2026-07-19",
@@ -1128,13 +1182,13 @@
     "type": "CS",
     "distancesLabel": "170 km / 5400 m D+ → Alpe d'Huez",
     "fiabilite": "confirmed",
-    "lat": 45.0560,
-    "lng": 6.0290,
+    "lat": 45.056,
+    "lng": 6.029,
     "url": "https://www.letapedutourdefrance.com",
     "notes": "Croix de Fer, Télégraphe, Galibier, col de Sarenne. 16 000 participants"
   },
   {
-    "id": 64,
+    "id": 67,
     "name": "Granfondo Col de la Loze",
     "date": "19 juillet",
     "dateISO": "2026-07-19",
@@ -1152,7 +1206,7 @@
     "notes": null
   },
   {
-    "id": 65,
+    "id": 68,
     "name": "La Madeleine",
     "date": "26 juillet",
     "dateISO": "2026-07-26",
@@ -1170,7 +1224,7 @@
     "notes": null
   },
   {
-    "id": 66,
+    "id": 69,
     "name": "Lélex Pays de Gex",
     "date": "26 juillet",
     "dateISO": "2026-07-26",
@@ -1188,7 +1242,7 @@
     "notes": null
   },
   {
-    "id": 67,
+    "id": 70,
     "name": "Les Cimes du Mercantour",
     "date": "26 juillet",
     "dateISO": "2026-07-26",
@@ -1206,7 +1260,7 @@
     "notes": null
   },
   {
-    "id": 68,
+    "id": 71,
     "name": "GF PraLoup",
     "date": "26 juillet",
     "dateISO": "2026-07-26",
@@ -1224,7 +1278,25 @@
     "notes": "1re édition. Parc National du Mercantour. Cyclo'Tour Matériel-Velo.com"
   },
   {
-    "id": 69,
+    "id": 72,
+    "name": "La Grenobloise Cyclosportive",
+    "date": "~début juillet",
+    "dateISO": null,
+    "jour": "Dimanche (prob.)",
+    "month": "juillet",
+    "lieu": "Eybens",
+    "dept": "38",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "CS",
+    "distancesLabel": "130 km (3450 D+), 91 km, 43 km",
+    "fiabilite": "uncertain",
+    "lat": 45.1511,
+    "lng": 5.7489,
+    "url": null,
+    "notes": "Challenge Cyclo d'Isère. Date 2026 non publiée (éd. 2025 : 6 juillet)"
+  },
+  {
+    "id": 73,
     "name": "Courir pour la Paix",
     "date": "1 août",
     "dateISO": "2026-08-01",
@@ -1237,12 +1309,12 @@
     "distancesLabel": "Parcours multiples",
     "fiabilite": "confirmed",
     "lat": 47.3344,
-    "lng": 4.3200,
+    "lng": 4.32,
     "url": null,
     "notes": null
   },
   {
-    "id": 70,
+    "id": 74,
     "name": "La Juradorienne",
     "date": "1 août",
     "dateISO": "2026-08-01",
@@ -1260,7 +1332,7 @@
     "notes": null
   },
   {
-    "id": 71,
+    "id": 75,
     "name": "La Vélotoise",
     "date": "2 août",
     "dateISO": "2026-08-02",
@@ -1278,7 +1350,7 @@
     "notes": null
   },
   {
-    "id": 72,
+    "id": 76,
     "name": "L'Étape du Tour de France Femmes avec Zwift",
     "date": "6 août",
     "dateISO": "2026-08-06",
@@ -1296,7 +1368,7 @@
     "notes": "Arrivée Mont Ventoux par Bédoin (15,7 km à 8,8%). SOLD OUT"
   },
   {
-    "id": 73,
+    "id": 77,
     "name": "L'Étape Sanfloraine",
     "date": "9 août",
     "dateISO": "2026-08-09",
@@ -1314,7 +1386,43 @@
     "notes": null
   },
   {
-    "id": 74,
+    "id": 78,
+    "name": "Randonnée de la Liore",
+    "date": "22 août",
+    "dateISO": "2026-08-22",
+    "jour": "Samedi",
+    "month": "aout",
+    "lieu": "Barbières",
+    "dept": "26",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "RC",
+    "distancesLabel": "133, 92, 61 km (route+VTT+gravel)",
+    "fiabilite": "probable",
+    "lat": 44.9478,
+    "lng": 5.1469,
+    "url": null,
+    "notes": null
+  },
+  {
+    "id": 79,
+    "name": "Climbing for Life Alpe d'Huez",
+    "date": "22-23 août",
+    "dateISO": "2026-08-22",
+    "jour": "Sam-Dim",
+    "month": "aout",
+    "lieu": "Huez",
+    "dept": "38",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "CS",
+    "distancesLabel": "107, 94, 71, 51 km (caritatif)",
+    "fiabilite": "probable",
+    "lat": 45.0919,
+    "lng": 6.0647,
+    "url": null,
+    "notes": "Événement caritatif sur 3 jours"
+  },
+  {
+    "id": 80,
     "name": "Megève Mont Blanc",
     "date": "23 août",
     "dateISO": "2026-08-23",
@@ -1332,7 +1440,7 @@
     "notes": null
   },
   {
-    "id": 75,
+    "id": 81,
     "name": "La Louis Pasteur",
     "date": "23 août",
     "dateISO": "2026-08-23",
@@ -1350,7 +1458,7 @@
     "notes": null
   },
   {
-    "id": 76,
+    "id": 82,
     "name": "GF Orcières",
     "date": "23 août",
     "dateISO": "2026-08-23",
@@ -1368,7 +1476,61 @@
     "notes": "GFNY World Series"
   },
   {
-    "id": 77,
+    "id": 83,
+    "name": "GFNY Alpes Vaujany Croix de Fer",
+    "date": "~23-24 août",
+    "dateISO": "2026-08-23",
+    "jour": "Dimanche (prob.)",
+    "month": "aout",
+    "lieu": "Vaujany",
+    "dept": "38",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "GF",
+    "distancesLabel": "120 km, 45 km",
+    "fiabilite": "probable",
+    "lat": 45.156,
+    "lng": 6.0806,
+    "url": null,
+    "notes": "GFNY World Series. Distinct du GFNY Vaujany de juin (celui-ci passe par la Croix de Fer)"
+  },
+  {
+    "id": 84,
+    "name": "Dona Vierna",
+    "date": "~août",
+    "dateISO": null,
+    "jour": "Week-end (prob.)",
+    "month": "aout",
+    "lieu": "Bourg-Saint-Andéol",
+    "dept": "07",
+    "region": "Auvergne-Rhône-Alpes",
+    "type": "RC",
+    "distancesLabel": "100, 25, 14 km",
+    "fiabilite": "uncertain",
+    "lat": 44.3728,
+    "lng": 4.6408,
+    "url": null,
+    "notes": "Date à confirmer. Volet marche également"
+  },
+  {
+    "id": 85,
+    "name": "Challenge Montagne de Lure",
+    "date": "~août",
+    "dateISO": null,
+    "jour": "Week-end (prob.)",
+    "month": "aout",
+    "lieu": "Manosque",
+    "dept": "04",
+    "region": "PACA",
+    "type": "CLM",
+    "distancesLabel": "48 km",
+    "fiabilite": "uncertain",
+    "lat": 43.834,
+    "lng": 5.788,
+    "url": null,
+    "notes": "Montée chronométrée. Date à confirmer"
+  },
+  {
+    "id": 86,
     "name": "Cyclo Morbihan Ouest France",
     "date": "29 août",
     "dateISO": "2026-08-29",
@@ -1386,7 +1548,7 @@
     "notes": null
   },
   {
-    "id": 78,
+    "id": 87,
     "name": "24 Heures Vélo Skoda",
     "date": "29 août",
     "dateISO": "2026-08-29",

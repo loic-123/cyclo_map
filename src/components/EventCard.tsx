@@ -1,7 +1,7 @@
 "use client";
 
 import type { CycloEvent } from "@/lib/types";
-import { MONTH_CONFIG, TYPE_CONFIG, FIAB_CONFIG, DEPT_CONFIG } from "@/lib/constants";
+import { MONTH_CONFIG, TYPE_CONFIG, FIAB_CONFIG } from "@/lib/constants";
 
 interface EventCardProps {
   event: CycloEvent;
@@ -66,7 +66,7 @@ export default function EventCard({
       {/* Ligne 2: date + lieu */}
       <div className="mt-1.5 text-[11px]" style={{ color: "var(--text-2)" }}>
         <span>📅 {event.date} · {event.jour}</span>
-        <span className="ml-3">📍 {event.lieu} ({DEPT_CONFIG[event.dept].label})</span>
+        <span className="ml-3">📍 {event.lieu} ({event.dept})</span>
       </div>
 
       {/* Ligne 3: distances */}

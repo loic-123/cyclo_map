@@ -12,13 +12,18 @@ export const TYPE_CONFIG = {
   CLM: { label: "CLM", color: "#3B82F6" },
 } as const;
 
-export const DEPT_CONFIG = {
-  "07": { label: "Ardèche" },
-  "26": { label: "Drôme" },
-  "38": { label: "Isère" },
-  "69": { label: "Rhône" },
-  "84": { label: "Vaucluse" },
-  "04": { label: "Alpes-HP" },
+export const REGION_CONFIG = {
+  "Auvergne-Rhône-Alpes": { label: "AuRA", color: "#EF4444" },
+  PACA: { label: "PACA", color: "#F59E0B" },
+  Occitanie: { label: "Occitanie", color: "#EC4899" },
+  "Nouvelle-Aquitaine": { label: "Nlle-Aquit.", color: "#8B5CF6" },
+  "Bourgogne-Franche-Comté": { label: "BFC", color: "#10B981" },
+  "Grand Est": { label: "Grand Est", color: "#3B82F6" },
+  Bretagne: { label: "Bretagne", color: "#06B6D4" },
+  Normandie: { label: "Normandie", color: "#84CC16" },
+  "Île-de-France": { label: "IdF", color: "#F97316" },
+  "Pays de la Loire": { label: "PdL", color: "#14B8A6" },
+  "Hauts-de-France": { label: "HdF", color: "#A855F7" },
 } as const;
 
 export const FIAB_CONFIG = {
@@ -42,8 +47,8 @@ export const FIAB_CONFIG = {
   },
 } as const;
 
-export const MAP_CENTER = { lat: 44.8, lng: 5.5 };
-export const MAP_ZOOM = 7.5;
+export const MAP_CENTER = { lat: 46.5, lng: 2.5 };
+export const MAP_ZOOM = 5.5;
 
 export const ALL_MONTHS = Object.keys(MONTH_CONFIG) as Array<
   keyof typeof MONTH_CONFIG
@@ -51,8 +56,8 @@ export const ALL_MONTHS = Object.keys(MONTH_CONFIG) as Array<
 export const ALL_TYPES = Object.keys(TYPE_CONFIG) as Array<
   keyof typeof TYPE_CONFIG
 >;
-export const ALL_DEPTS = Object.keys(DEPT_CONFIG) as Array<
-  keyof typeof DEPT_CONFIG
+export const ALL_REGIONS = Object.keys(REGION_CONFIG) as Array<
+  keyof typeof REGION_CONFIG
 >;
 export const ALL_FIABS = Object.keys(FIAB_CONFIG) as Array<
   keyof typeof FIAB_CONFIG

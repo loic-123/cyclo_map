@@ -1,20 +1,20 @@
 "use client";
 
 import FilterChip from "./FilterChip";
-import type { CycloEvent, Filters, Month, EventType, DeptCode, Fiabilite } from "@/lib/types";
-import { MONTH_CONFIG, TYPE_CONFIG, DEPT_CONFIG, FIAB_CONFIG } from "@/lib/constants";
+import type { CycloEvent, Filters, Month, EventType, Region, Fiabilite } from "@/lib/types";
+import { MONTH_CONFIG, TYPE_CONFIG, REGION_CONFIG, FIAB_CONFIG } from "@/lib/constants";
 
 interface FilterBarProps {
   allEvents: CycloEvent[];
   filters: Filters;
   toggleMonth: (m: Month) => void;
   toggleType: (t: EventType) => void;
-  toggleDept: (d: DeptCode) => void;
+  toggleRegion: (r: Region) => void;
   toggleFiab: (f: Fiabilite) => void;
   resetAll: () => void;
 }
 
-function countBy<T extends string>(
+function countBy(
   events: CycloEvent[],
   key: keyof CycloEvent,
   filters: Filters,
@@ -22,11 +22,10 @@ function countBy<T extends string>(
 ): Record<string, number> {
   const counts: Record<string, number> = {};
   for (const e of events) {
-    // Count with cross-filtering: apply all filters EXCEPT the current category
     const pass =
       (filterKey === "months" || filters.months.has(e.month)) &&
       (filterKey === "types" || filters.types.has(e.type)) &&
-      (filterKey === "depts" || filters.depts.has(e.dept)) &&
+      (filterKey === "regions" || filters.regions.has(e.region)) &&
       (filterKey === "fiabs" || filters.fiabs.has(e.fiabilite));
     if (pass) {
       const v = e[key] as string;
@@ -41,14 +40,19 @@ export default function FilterBar({
   filters,
   toggleMonth,
   toggleType,
-  toggleDept,
+  toggleRegion,
   toggleFiab,
   resetAll,
 }: FilterBarProps) {
   const monthCounts = countBy(allEvents, "month", filters, "months");
   const typeCounts = countBy(allEvents, "type", filters, "types");
-  const deptCounts = countBy(allEvents, "dept", filters, "depts");
+  const regionCounts = countBy(allEvents, "region", filters, "regions");
   const fiabCounts = countBy(allEvents, "fiabilite", filters, "fiabs");
+
+  // Only show regions that have events
+  const activeRegions = (
+    Object.entries(REGION_CONFIG) as [Region, (typeof REGION_CONFIG)[keyof typeof REGION_CONFIG]][]
+  ).filter(([key]) => allEvents.some((e) => e.region === key));
 
   return (
     <div className="space-y-2.5 px-4 py-3 border-b" style={{ borderColor: "var(--border)" }}>
@@ -97,19 +101,18 @@ export default function FilterBar({
         )}
       </div>
 
-      {/* Département */}
+      {/* Région */}
       <div className="flex flex-wrap gap-1.5">
-        {(Object.entries(DEPT_CONFIG) as [DeptCode, (typeof DEPT_CONFIG)[DeptCode]][]).map(
-          ([key, cfg]) => (
-            <FilterChip
-              key={key}
-              label={cfg.label}
-              count={deptCounts[key] || 0}
-              active={filters.depts.has(key)}
-              onClick={() => toggleDept(key)}
-            />
-          )
-        )}
+        {activeRegions.map(([key, cfg]) => (
+          <FilterChip
+            key={key}
+            label={cfg.label}
+            count={regionCounts[key] || 0}
+            active={filters.regions.has(key)}
+            accentColor={cfg.color}
+            onClick={() => toggleRegion(key)}
+          />
+        ))}
       </div>
 
       {/* Fiabilité */}

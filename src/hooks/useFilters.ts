@@ -7,17 +7,17 @@ import type {
   Filters,
   Month,
   EventType,
-  DeptCode,
+  Region,
   Fiabilite,
 } from "@/lib/types";
-import { ALL_MONTHS, ALL_TYPES, ALL_DEPTS, ALL_FIABS } from "@/lib/constants";
+import { ALL_MONTHS, ALL_TYPES, ALL_REGIONS, ALL_FIABS } from "@/lib/constants";
 import { filterEvents, serializeFilters, deserializeFilters } from "@/lib/filters";
 
 function defaultFilters(): Filters {
   return {
     months: new Set<Month>(ALL_MONTHS),
     types: new Set<EventType>(ALL_TYPES),
-    depts: new Set<DeptCode>(ALL_DEPTS),
+    regions: new Set<Region>(ALL_REGIONS),
     fiabs: new Set<Fiabilite>(ALL_FIABS),
   };
 }
@@ -32,7 +32,7 @@ export function useFilters(allEvents: CycloEvent[]) {
     return {
       months: fromUrl.months ?? defaults.months,
       types: fromUrl.types ?? defaults.types,
-      depts: fromUrl.depts ?? defaults.depts,
+      regions: fromUrl.regions ?? defaults.regions,
       fiabs: fromUrl.fiabs ?? defaults.fiabs,
     };
   });
@@ -58,7 +58,7 @@ export function useFilters(allEvents: CycloEvent[]) {
 
   const toggleMonth = useMemo(() => toggle<Month>("months"), [toggle]);
   const toggleType = useMemo(() => toggle<EventType>("types"), [toggle]);
-  const toggleDept = useMemo(() => toggle<DeptCode>("depts"), [toggle]);
+  const toggleRegion = useMemo(() => toggle<Region>("regions"), [toggle]);
   const toggleFiab = useMemo(() => toggle<Fiabilite>("fiabs"), [toggle]);
 
   const resetAll = useCallback(() => setFilters(defaultFilters()), []);
@@ -72,7 +72,7 @@ export function useFilters(allEvents: CycloEvent[]) {
     filters,
     toggleMonth,
     toggleType,
-    toggleDept,
+    toggleRegion,
     toggleFiab,
     resetAll,
     visibleEvents,

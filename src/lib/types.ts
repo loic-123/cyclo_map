@@ -1,12 +1,20 @@
 export type Month = "mai" | "juin" | "juillet" | "aout";
 export type EventType = "CS" | "GF" | "RC" | "CLM";
 export type Fiabilite = "confirmed" | "probable" | "uncertain";
-export type DeptCode = "07" | "26" | "38" | "69" | "84" | "04";
+export type DeptCode = string;
 
-export interface Distance {
-  km: number;
-  denivele: number | null;
-}
+export type Region =
+  | "Auvergne-Rhône-Alpes"
+  | "PACA"
+  | "Occitanie"
+  | "Nouvelle-Aquitaine"
+  | "Bourgogne-Franche-Comté"
+  | "Grand Est"
+  | "Bretagne"
+  | "Normandie"
+  | "Île-de-France"
+  | "Pays de la Loire"
+  | "Hauts-de-France";
 
 export interface CycloEvent {
   id: number;
@@ -17,8 +25,8 @@ export interface CycloEvent {
   month: Month;
   lieu: string;
   dept: DeptCode;
+  region: Region;
   type: EventType;
-  distances: Distance[];
   distancesLabel: string;
   fiabilite: Fiabilite;
   lat: number;
@@ -30,6 +38,6 @@ export interface CycloEvent {
 export interface Filters {
   months: Set<Month>;
   types: Set<EventType>;
-  depts: Set<DeptCode>;
+  regions: Set<Region>;
   fiabs: Set<Fiabilite>;
 }

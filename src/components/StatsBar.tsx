@@ -9,7 +9,7 @@ interface StatsBarProps {
 }
 
 export default function StatsBar({ visibleCount, totalCount, events }: StatsBarProps) {
-  const deptCount = new Set(events.map((e) => e.dept)).size;
+  const regionCount = new Set(events.map((e) => e.region)).size;
 
   return (
     <div className="flex items-center gap-4 px-4 py-2 text-[11px]" style={{ color: "var(--text-3)" }}>
@@ -21,9 +21,9 @@ export default function StatsBar({ visibleCount, totalCount, events }: StatsBarP
       </span>
       <span>
         <span className="font-bold text-[13px]" style={{ color: "var(--text-2)" }}>
-          {deptCount}
+          {regionCount}
         </span>{" "}
-        départements
+        régions
       </span>
     </div>
   );

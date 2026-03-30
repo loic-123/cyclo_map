@@ -1,7 +1,7 @@
 "use client";
 
 import type { CycloEvent } from "@/lib/types";
-import { TYPE_CONFIG, FIAB_CONFIG, DEPT_CONFIG, MONTH_CONFIG } from "@/lib/constants";
+import { TYPE_CONFIG, FIAB_CONFIG, MONTH_CONFIG, REGION_CONFIG } from "@/lib/constants";
 
 interface EventDetailProps {
   event: CycloEvent;
@@ -54,7 +54,7 @@ export default function EventDetail({ event, onClose }: EventDetailProps) {
         {/* Info rows */}
         <div className="mt-3 space-y-2 text-[12px]" style={{ color: "var(--text-2)" }}>
           <div>📅 {event.date} · {event.jour}</div>
-          <div>📍 {event.lieu} ({DEPT_CONFIG[event.dept].label})</div>
+          <div>📍 {event.lieu} ({event.dept}) · {REGION_CONFIG[event.region]?.label ?? event.region}</div>
           <div>🚴 {event.distancesLabel}</div>
           <div>{fiabCfg.emoji} {fiabCfg.description}</div>
         </div>

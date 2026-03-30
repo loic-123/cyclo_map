@@ -19,7 +19,7 @@ function AppContent() {
     filters,
     toggleMonth,
     toggleType,
-    toggleDept,
+    toggleRegion,
     toggleFiab,
     resetAll,
     visibleEvents,
@@ -44,7 +44,7 @@ function AppContent() {
           filters={filters}
           toggleMonth={toggleMonth}
           toggleType={toggleType}
-          toggleDept={toggleDept}
+          toggleRegion={toggleRegion}
           toggleFiab={toggleFiab}
           resetAll={resetAll}
           hoveredEventId={hoveredEventId}

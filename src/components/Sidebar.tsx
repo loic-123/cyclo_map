@@ -1,6 +1,6 @@
 "use client";
 
-import type { CycloEvent, Filters, Month, EventType, DeptCode, Fiabilite } from "@/lib/types";
+import type { CycloEvent, Filters, Month, EventType, Region, Fiabilite } from "@/lib/types";
 import StatsBar from "./StatsBar";
 import FilterBar from "./FilterBar";
 import EventList from "./EventList";
@@ -11,7 +11,7 @@ interface SidebarProps {
   filters: Filters;
   toggleMonth: (m: Month) => void;
   toggleType: (t: EventType) => void;
-  toggleDept: (d: DeptCode) => void;
+  toggleRegion: (r: Region) => void;
   toggleFiab: (f: Fiabilite) => void;
   resetAll: () => void;
   hoveredEventId: number | null;
@@ -26,7 +26,7 @@ export default function Sidebar({
   filters,
   toggleMonth,
   toggleType,
-  toggleDept,
+  toggleRegion,
   toggleFiab,
   resetAll,
   hoveredEventId,
@@ -49,7 +49,7 @@ export default function Sidebar({
           <span style={{ color: "var(--accent)" }}>2026</span>
         </h1>
         <p className="text-[11px] mt-0.5" style={{ color: "var(--text-3)" }}>
-          Mai → Août · Sud-Est France
+          Mai → Août · France entière
         </p>
       </div>
 
@@ -64,7 +64,7 @@ export default function Sidebar({
         filters={filters}
         toggleMonth={toggleMonth}
         toggleType={toggleType}
-        toggleDept={toggleDept}
+        toggleRegion={toggleRegion}
         toggleFiab={toggleFiab}
         resetAll={resetAll}
       />

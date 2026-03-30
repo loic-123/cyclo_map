@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Instrument+Serif:ital@0;1&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0d10;
+  --surface: #111318;
+  --surface-2: #15181f;
+  --surface-3: #1a1f2b;
+  --border: #1f2937;
+  --border-hover: #2d3748;
+  --text: #e5e7eb;
+  --text-2: #9ca3af;
+  --text-3: #6b7280;
+  --text-4: #4b5563;
+  --accent: #f97316;
+  --accent-glow: rgba(249, 115, 22, 0.12);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-pill: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Leaflet popup styling */
+.cyclo-popup .leaflet-popup-content-wrapper {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.cyclo-popup .leaflet-popup-tip {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.cyclo-popup .leaflet-popup-content {
+  margin: 8px 12px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* Animations */
+@keyframes marker-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 200ms ease-out;
+}
+
+/* Fix leaflet z-index for Next.js */
+.leaflet-pane {
+  z-index: 1 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 2 !important;
+}

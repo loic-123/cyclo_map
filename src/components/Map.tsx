@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { CycloEvent } from "@/lib/types";
@@ -14,7 +14,19 @@ interface MapProps {
   onSelectEvent: (id: number | null) => void;
 }
 
-function createCircleIcon(color: string, size: number, pulse = false): L.DivIcon {
+function createHomeIcon(dark = true): L.DivIcon {
+  const bg = dark ? "#1e293b" : "#ffffff";
+  const border = dark ? "rgba(255,255,255,0.6)" : "rgba(0,0,0,0.2)";
+  return L.divIcon({
+    className: "",
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
+    html: `<div style="width:28px;height:28px;border-radius:50%;background:${bg};border:2px solid ${border};display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🏠</div>`,
+  });
+}
+
+function createCircleIcon(color: string, size: number, pulse = false, dark = true): L.DivIcon {
+  const borderColor = dark ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.3)";
   const shadow = pulse
     ? `box-shadow: 0 0 0 4px ${color}40, 0 0 12px ${color}60; animation: marker-pulse 1.5s ease-in-out infinite;`
     : "";
@@ -22,7 +34,7 @@ function createCircleIcon(color: string, size: number, pulse = false): L.DivIcon
     className: "",
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
-    html: `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid rgba(255,255,255,0.8);${shadow};transition:all 200ms ease;"></div>`,
+    html: `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${color};border:2px solid ${borderColor};${shadow};transition:all 200ms ease;"></div>`,
   });
 }
 
@@ -36,7 +48,20 @@ export default function Map({
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<globalThis.Map<number, L.Marker>>(new globalThis.Map());
+  const homeMarkerRef = useRef<L.Marker | null>(null);
   const popupRef = useRef<L.Popup | null>(null);
+  const tileLayerRef = useRef<L.TileLayer | null>(null);
+
+  const HOME = { lat: 44.1225, lng: 5.0306, label: "Beaumes-de-Venise" };
+  const [isDark, setIsDark] = useState(true);
+
+  const TILES = {
+    dark: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+    light: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+  };
+
+  const TILE_ATTR =
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>';
 
   // Initialize map once
   useEffect(() => {
@@ -48,16 +73,11 @@ export default function Map({
       zoomControl: false,
     });
 
-    // CartoDB Dark Matter tiles - dark style with real map features
-    L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: "abcd",
-        maxZoom: 19,
-      }
-    ).addTo(map);
+    tileLayerRef.current = L.tileLayer(TILES.dark, {
+      attribution: TILE_ATTR,
+      subdomains: "abcd",
+      maxZoom: 19,
+    }).addTo(map);
 
     L.control.zoom({ position: "topright" }).addTo(map);
 
@@ -68,11 +88,40 @@ export default function Map({
       offset: [0, -8],
     });
 
+    // Home marker - Beaumes-de-Venise
+    homeMarkerRef.current = L.marker([HOME.lat, HOME.lng], {
+      icon: createHomeIcon(true),
+      zIndexOffset: 1000,
+    })
+      .bindPopup(
+        `<div style="font-family:'DM Sans',sans-serif;"><strong>🏠 ${HOME.label}</strong></div>`,
+        { className: "cyclo-popup" }
+      )
+      .addTo(map);
+
     return () => {
       map.remove();
       mapRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Switch tiles when theme changes
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !tileLayerRef.current) return;
+    tileLayerRef.current.remove();
+    tileLayerRef.current = L.tileLayer(isDark ? TILES.dark : TILES.light, {
+      attribution: TILE_ATTR,
+      subdomains: "abcd",
+      maxZoom: 19,
+    }).addTo(map);
+    // Update home marker icon
+    if (homeMarkerRef.current) {
+      homeMarkerRef.current.setIcon(createHomeIcon(isDark));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDark]);
 
   // Manage markers
   useEffect(() => {
@@ -87,10 +136,10 @@ export default function Map({
       const color = MONTH_CONFIG[event.month].color;
       const isHovered = event.id === hoveredEventId;
       const isSelected = event.id === selectedEventId;
-      const size = isHovered || isSelected ? 14 : 8;
+      const size = isHovered || isSelected ? 18 : 12;
 
       const marker = L.marker([event.lat, event.lng], {
-        icon: createCircleIcon(color, size, isSelected),
+        icon: createCircleIcon(color, size, isSelected, isDark),
       });
 
       marker.on("mouseover", () => {
@@ -115,7 +164,7 @@ export default function Map({
       marker.addTo(map);
       markersRef.current.set(event.id, marker);
     });
-  }, [events, hoveredEventId, selectedEventId, onHoverEvent, onSelectEvent]);
+  }, [events, hoveredEventId, selectedEventId, onHoverEvent, onSelectEvent, isDark]);
 
   // FlyTo on selection
   useEffect(() => {
@@ -139,5 +188,21 @@ export default function Map({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [eventIds]);
 
-  return <div ref={containerRef} className="h-full w-full" />;
+  return (
+    <div className="relative h-full w-full">
+      <div ref={containerRef} className="h-full w-full" />
+      <button
+        onClick={() => setIsDark((d) => !d)}
+        className="absolute top-3 left-3 z-[1000] flex h-8 w-8 items-center justify-center rounded-lg text-sm cursor-pointer transition-colors"
+        style={{
+          backgroundColor: isDark ? "var(--surface-2)" : "#fff",
+          border: `1px solid ${isDark ? "var(--border)" : "#d1d5db"}`,
+          color: isDark ? "var(--text-2)" : "#374151",
+        }}
+        title={isDark ? "Fond clair" : "Fond sombre"}
+      >
+        {isDark ? "☀️" : "🌙"}
+      </button>
+    </div>
+  );
 }
